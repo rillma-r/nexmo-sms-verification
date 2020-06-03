@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+    h1 Welcome!
+    if number
+        h2 You are signed-in using mobile: #{number}
+        if role === 'buyer'
+            form(action='/chat', method='post')
+                input(type='hidden', name='buyer', value=number)
+                select.select-box(name='deliverer')
+                    each deliverer in deliverers
+                        option(value=deliverer.number) #{deliverer.firstname} #{deliverer.lastname}
+                input.button(type='submit', value='Contact')
+        a(href="sign_out")
+            button.button(type="button") Sign-out
+    else
+        h2 Please, Sign-in to continue
+        a(href="sign_in")
+            button.button(type="button") Sign-In

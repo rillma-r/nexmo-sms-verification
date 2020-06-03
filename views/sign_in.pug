@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+    h1 Sign in: 
+    h2 Request Verification Code!
+    body
+        form(action='/verify_code', method='post')
+	
+            input(name='firstname', type='text', placeholder='First Name:', required='')
+			
+            input(name='lastname', type="text", placeholder='Last Name:', required='')
+
+            input(name='number', type='text', placeholder='Mobile number:', required='')
+            div.controls
+            input.radio.inner(name='role', type='radio', value='buyer', checked=true)
+            | Buyer
+            br
+            input.radio.inner(name='role', type='radio', value='deliverer', checked=false) 
+            | Deliverer
+            br
+            input.button(type='submit', value='Request Verification Code')
+			

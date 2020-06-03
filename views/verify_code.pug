@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+    h1 Sign-in: 
+    h2 Verification Code!
+    body
+        form(action='/check-code', method='post')
+            input(name='requestid', type='hidden', value=requestid)
+            input(name='code', type='text', placeholder='Enter the verification code', required='')
+            input.button(type='submit', value='Verify my Code!')
